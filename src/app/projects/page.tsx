@@ -8,8 +8,17 @@ import Project from './../../components/projects/Project';
 export default function Projects() {
   const [active, setActive] = useState("hypertrophy");
   const [previousActive, setPreviousActive] = useState("hypertrophy")
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  function onAnimating(bool: boolean){
+    setIsAnimating(bool)
+  }
 
   function handleClick(active: string){
+    if(isAnimating) return
+    setIsAnimating(prev => {
+      return true
+    })
     setActive(prev => {
       setPreviousActive(prev)
       return active
@@ -20,7 +29,7 @@ export default function Projects() {
   return (
     <div className="w-screen min-h-screen max-h-screen overflow-y-hidden">
       {projects.map(project => (
-        <Project key={project.title} previousActive={previousActive} project={project} active={active}/>
+        <Project key={project.title} onAnimating={onAnimating} previousActive={previousActive} project={project} active={active}/>
       ))}
       <div className="w-full absolute bottom-[5rem]">
         <ul className="mx-auto flex w-[90%] justify-between font-semibold uppercase">
@@ -28,7 +37,7 @@ export default function Projects() {
             <li
             key={index}
               className="flex gap-5 relative cursor-pointer z-50"
-              onClick={() => handleClick(project.title)}
+              onClick={() => project.title !== active && handleClick(project.title)}
             >
               <span>0{index + 1}</span>
               <span>{project.title}</span>
