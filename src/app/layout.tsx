@@ -15,9 +15,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
-      <body className={`${inter.className} relative min-h-screen text-black`}>
+      <body style={{backgroundColor: '#27374D'}} className={`${inter.className} text-white relative min-h-screen text-black`}>
         {children}
       <MenuButton/>
         </body>

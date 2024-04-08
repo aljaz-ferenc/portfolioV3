@@ -8,8 +8,8 @@ import {
   anticipate,
 } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
-import { Bodoni_Moda } from "next/font/google";
+import { useEffect, useState } from "react";
+import { Bodoni_Moda, Amarante } from "next/font/google";
 
 const circleVariants = {
   initial: {
@@ -99,71 +99,138 @@ const linksContainerVariants = {
   animate: {
     y: 0,
     transition: {
-      staggerChildren: .5
-        },
+      staggerChildren: 0.25,
+    },
   },
 };
 
 const linkVariants = {
   initial: {
-    y: 20,
+    y: 100,
     opacity: 0,
+    scaleY: 0.5,
   },
   animate: {
     y: 0,
     opacity: 1,
+    scaleY: 1,
     transition: {
       duration: 1,
-    }
+    },
+  },
+};
+
+const headingVariants = {
+  initial: {
+    opacity: 0,
+    y: 50,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const headingCharVariants = {
+  initial: {
+    opacity: 0,
+    x: -200,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
+const developerVariants = {
+  initial: {
+    opacity: 0,
+    x: 100,
+    rotate: '90deg'
+  },
+  animate: {
+    opacity: 0.1,
+    x: 0,
+    transition: {
+      duration: 1,
+      delay: 1
+    },
   },
 }
 
-const links = [
-  {text: 'About', href: '/about'},
-  {text: 'Projects', href: '/projects'},
-  {text: 'Stack', href: '/stack'},
-  {text: 'Blog', href: '/blog'},
-]
-const bodoni = Bodoni_Moda({subsets: ['latin']})
+type MenuLink = {
+  text: string;
+  href: string;
+};
+
+const links: MenuLink[] = [
+  { text: "About", href: "/about" },
+  { text: "Projects", href: "/projects" },
+  { text: "Stack", href: "/stack" },
+  { text: "Blog", href: "/blog" },
+];
+const bodoni = Bodoni_Moda({ subsets: ["latin"] });
+const amarante = Amarante({ subsets: ["latin"], weight: "400" });
+
 
 
 export default function MenuButton() {
   const [hovered, setHovered] = useState(false);
   const [active, setActive] = useState(false);
-  
+  const [linkHovered, setLinkHovered] = useState(false);
 
   return (
     <>
       <AnimatePresence mode="wait">
         {active && (
           <motion.div
-            key={"menu"}
-            className="fixed w-full h-full bg-black top-[100%] left-0 flex items-center text-white"
-            initial={{ top: "100%" }}
-            animate={{ top: "0", transition: { ease: easeIn, duration: 0.3 } }}
+          key={"menu"}
+            className="cursor-none select-none fixed w-full h-full bg-black top-[100%] left-0 flex items-center text-white"
+            initial={{ top: "100%"}}
+            animate={{ top: "0", transition: { ease: easeOut, duration: 0.5 } }}
             exit={{
               top: "-100%",
-              transition: { ease: easeOut, duration: 0.5 },
+              transition: { ease: 'anticipate', duration: 0.5 },
             }}
-          >
+            style={{ zIndex: 100 }}
+            >
+            <motion.h1
+              className={`absolute right-[20%] bottom-[2rem] text-[8rem]  ${amarante.className}`}
+              variants={headingVariants}
+              initial="initial"
+              animate="animate"
+              style={{ zIndex: 102, mixBlendMode: "difference" }}
+            >
+              {"ALJAŽ FERENC".split("").map((char, i) => (
+                <motion.span key={i} variants={headingCharVariants}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.h1>
+            <motion.span 
+              variants={developerVariants}
+              initial='initial'
+              animate='animate'
+            style={{ zIndex: 102, mixBlendMode: "difference", opacity: 0.1 }} className=' absolute rotate-[90deg] right-[-8rem] top-[50%] translate-y-[-50%] font-bold text-[3rem]'>WEB DEVELOPER</motion.span>
+            <CursorCircle linkHovered={linkHovered} />
             <motion.ul
               key={"links-container"}
               variants={linksContainerVariants}
               animate="animate"
               initial="initial"
-              className={`${bodoni.className} pl-[5rem] text-[5rem] flex flex-col gap-5 font-bold w-full`}
+              onMouseLeave={() => setLinkHovered(false)}
+              onMouseEnter={() => setLinkHovered(true)}
+              className={`${amarante.className} pl-[5rem] text-[5rem] flex flex-col gap-5 font-bold`}
             >
-              {links.map(link => (
-                <motion.li
-                  variants={linkVariants}
-                  className=""
-                  key={link.href}
-                >
-                  <Link 
-                  href={link.href}
-                  onClick={() => setActive(false)}
-                  >{link.text}</Link>
-                </motion.li>
+              {links.map((link) => (
+                <MenuLink key={link.href} link={link} setActive={setActive} />
               ))}
             </motion.ul>
           </motion.div>
@@ -176,6 +243,7 @@ export default function MenuButton() {
         className={`text-white w-[100px] z-50 gap-2 rounded-[90px] font-semibold h-[45px] flex items-center justify-center absolute top-5 right-5 ${
           active ? "cursor-default" : "pointer"
         }`}
+        style={{ zIndex: 10001 }}
       >
         <motion.div
           className="w-full h-full bg-black origin-top right-0 absolute rounded-[90px]"
@@ -222,5 +290,93 @@ export default function MenuButton() {
         </motion.div>
       </motion.button>
     </>
+  );
+}
+
+type MenuLinkProps = {
+  link: MenuLink;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+function MenuLink({ link, setActive }: MenuLinkProps) {
+  return (
+    <motion.li
+      variants={linkVariants}
+      className="w-fit"
+      key={link.href}
+      style={{ zIndex: 102, mixBlendMode: "difference" }}
+    >
+      <Link href={link.href} onClick={() => setActive(false)}>
+        <span>{link.text}</span>
+      </Link>
+    </motion.li>
+  );
+}
+
+type CursorCircleProps = {
+  linkHovered: boolean;
+};
+
+function CursorCircle({ linkHovered }: CursorCircleProps) {
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [windowSize, setWindowSize] = useState({
+    x: innerWidth,
+    y: innerHeight,
+  });
+
+  useEffect(() => {
+    addEventListener("mousemove", onMouseMove);
+    addEventListener("resize", onResize);
+
+    return () => {
+      removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
+  function onMouseMove(e: MouseEvent) {
+    setMouse({ x: e.clientX, y: e.clientY });
+  }
+
+  function onResize() {
+    setWindowSize({ x: innerWidth, y: innerHeight });
+  }
+
+  const circleRadius = 200
+
+  const cursorCircleVariants = {
+    initial: {
+      opacity: 1,
+      width: circleRadius,
+      height: circleRadius,
+    },
+    hidden: {
+      opacity: 0,
+    },
+    hovering: {
+      width: 200,
+      height: 200,
+    },
+  };
+
+  return (
+    <motion.div
+      variants={cursorCircleVariants}
+      initial="initial"
+      transition={{ duration: 0.2 }}
+      animate={
+        // linkHovered
+        //   ? "hovering"
+          mouse.x > windowSize.x - 200 && mouse.y < 200
+          ? "hidden"
+          : "initial"
+      }
+      style={{
+        zIndex: 10,
+        position: "absolute",
+        top: ( mouse.y - circleRadius / 2) + "px",
+        left: (mouse.x - circleRadius / 2) + "px",
+      }}
+      className={`w-[200px] h-[200px] absolute bg-white rounded-full cursor-none origin-center`}
+    ></motion.div>
   );
 }
