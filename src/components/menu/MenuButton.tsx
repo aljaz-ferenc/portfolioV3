@@ -187,7 +187,7 @@ export function CursorCircle({ linkHovered }: CursorCircleProps) {
     setWindowSize({ x: innerWidth, y: innerHeight });
   }
 
-  const circleRadius = 200
+  const circleRadius = 100
 
   const cursorCircleVariants = {
     initial: {
@@ -210,7 +210,6 @@ export function CursorCircle({ linkHovered }: CursorCircleProps) {
       initial="initial"
       transition={{ duration: 0.2 }}
       animate={
-
           mouse.x > windowSize.x - 200 && mouse.y < 200
           ? "hidden"
           : "initial"

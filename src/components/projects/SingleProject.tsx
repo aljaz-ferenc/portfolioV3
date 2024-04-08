@@ -41,11 +41,10 @@ export default function SingleProject({
       <mesh
         onClick={() => setState(index)}
         position={[0, positionY, 0]}
-        scale={1}
         ref={meshRef}
       >
         <planeGeometry args={[3, 2]} />
-        <meshStandardMaterial map={texture} />
+        <meshBasicMaterial map={texture} />
       </mesh>
     );
   }

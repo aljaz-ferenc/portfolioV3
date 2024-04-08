@@ -1,0 +1,11 @@
+Model Information:
+* title:	Loxodrome Variant  Ornament
+* source:	https://sketchfab.com/3d-models/loxodrome-variant-ornament-b6f15b12cb974aeca06d8b017c0bb793
+* author:	Pixion (https://sketchfab.com/pixion)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Loxodrome Variant  Ornament" (https://sketchfab.com/3d-models/loxodrome-variant-ornament-b6f15b12cb974aeca06d8b017c0bb793) by Pixion (https://sketchfab.com/pixion) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

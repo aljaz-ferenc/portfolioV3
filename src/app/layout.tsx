@@ -18,7 +18,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body style={{backgroundColor: '#27374D'}} className={`${inter.className} text-white relative min-h-screen text-black`}>
+      <body  className={`${inter.className} text-white relative min-h-screen bg-slate-800 text-black`}>
         {children}
       <MenuButton/>
         </body>

@@ -46,15 +46,15 @@ function Projects({ state, setState }: ProjectsProps) {
   const pointLightRef = useRef<PointLight | null>(null);
 
   useFrame(({ camera }) => {
-    if (!pointLightRef.current) return;
+    // if (!pointLightRef.current) return;
     const position = lerp(camera.position.y, state + 2 * state, 0.1);
     camera.position.y = position;
-    pointLightRef.current.position.y = position;
+    // pointLightRef.current.position.y = position;
   });
 
   return (
     <>
-      <pointLight intensity={10} position={[-1, 0, 2]} ref={pointLightRef} />
+      {/* <pointLight intensity={3} position={[-2, -5, 1]} decay={1} ref={pointLightRef} /> */}
       <group ref={groupRef} rotation-y={-1}>
         {projects.map((project: Project, index) => (
           <SingleProject
