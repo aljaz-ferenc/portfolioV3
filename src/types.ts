@@ -11,3 +11,8 @@ export type Project = {
     color: string
     technologies: string[]
 }
+
+export type MenuLink = {
+    text: string;
+    href: string;
+  };
