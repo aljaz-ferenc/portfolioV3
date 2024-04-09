@@ -1,14 +1,15 @@
-'use client'
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import Menu from "@/components/menu/Menu";
+
+
+
 
 export default function Home() {
-  const router = useRouter()
-  useEffect(() => {
-    router.push('/about')
-  }, [])
   return (
-    <></>
-  );
+
+    <>
+
+  <Menu/>
+  </>
+  )
 }

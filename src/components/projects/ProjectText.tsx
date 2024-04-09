@@ -2,6 +2,7 @@ import { Project } from "@/types";
 import {motion} from 'framer-motion'
 import ProjectLink from "@/components/projects/ProjectLink";
 import { Github, PanelsTopLeft } from "lucide-react";
+import Badge from "../ui/Badge";
 
 type ProjectTextProps = {
     project: Project;
@@ -15,9 +16,16 @@ type ProjectTextProps = {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <h1 className="text-[5rem] font-bold">{project.title}</h1>
-        <h3 className="text-[2rem] font-bold">{project.subtitle}</h3>
-        <div className="flex flex-col gap-5">
+        <div
+          className="flex gap-2 mb-2"
+          >
+            {project.technologies.map((tech, i) => (
+              <Badge key={i}>{tech}</Badge>
+            ))}
+          </div>
+        <h1 className="lg:text-[5rem] md:text-[3rem] text-[2rem]  font-bold">{project.title}</h1>
+        <h3 className="text-[1.5rem] md:text-[2rem]  lg:text-[2.5rem] font-bold">{project.subtitle}</h3>
+        <div className="flex flex-col gap-5 text-[1rem] ">
           {project.paragraphs.map((para, i) => (
             <p key={i}>{para}</p>
           ))}

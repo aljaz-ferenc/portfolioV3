@@ -46,7 +46,7 @@
     "id": 2,
     "image": "travelology",
     "color":"#9CAFAA",
-    "technologies":["React", "JavaScript", "SASS", "React-leaflet", "Express", "MongoDB"]
+    "technologies":["React", "SASS", "Leaflet", "Express", "MongoDB"]
   },
   {
     "title": "Vista Chat",
@@ -64,7 +64,7 @@
     "id": 3,
     "image": "vista-chat",
     "color":"#EFBC9B",
-    "technologies":["React", "JavaScript", "SASS", "Express", "MongoDB"]
+    "technologies":["React", "SASS", "Express", "MongoDB"]
   },
   {
     "title": "Hypertrophy",

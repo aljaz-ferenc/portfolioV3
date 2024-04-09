@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 import MenuButton from "@/components/menu/MenuButton";
+import Menu from "@/components/menu/Menu";
+import ContextProvider from "@/context/Context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +20,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <ContextProvider>
       <body  className={`${inter.className} text-white relative min-h-screen bg-slate-800 text-black`}>
         {children}
       <MenuButton/>
         </body>
+      </ContextProvider>
     </html>
   );
 }

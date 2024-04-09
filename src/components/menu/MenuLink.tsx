@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type MenuLinkProps = {
     link: MenuLinkType;
-    setActive: React.Dispatch<React.SetStateAction<boolean>>;
+    setActive?: React.Dispatch<React.SetStateAction<boolean>>;
   };
 
   const linkVariants = {
@@ -32,7 +32,9 @@ type MenuLinkProps = {
         key={link.href}
         style={{ zIndex: 102, mixBlendMode: "difference" }}
       >
-        <Link href={link.href} onClick={() => setActive(false)}>
+        <Link href={link.href} 
+        onClick={() => !!setActive && setActive(false)}
+        >
           <span>{link.text}</span>
         </Link>
       </motion.li>

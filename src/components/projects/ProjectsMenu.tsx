@@ -9,7 +9,7 @@ type ProjectMenuProps = {
   
  export default function ProjectsMenu({ state, setState, projects }: ProjectMenuProps) {
     return (
-      <div className="absolute w-[90%] bottom-[5rem] left-[50%] translate-x-[-50%]  flex justify-between ">
+      <div className="absolute w-[90%] bottom-[5rem] left-[50%] translate-x-[-50%]  flex gap-2 flex-wrap justify-between ">
         {projects.map((project: Project, index) => (
           <div
             onClick={() => setState(index)}
