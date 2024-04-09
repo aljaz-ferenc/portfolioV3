@@ -27,9 +27,9 @@ export default function SingleProject({
       if (!meshRef.current) return;
   
       if (active) {
-        meshRef.current.rotation.y = lerp(meshRef.current.rotation.y, 1, 0.1);
-        meshRef.current.scale.x = lerp(meshRef.current.scale.x, 1.5, 0.1);
-        meshRef.current.scale.y = lerp(meshRef.current.scale.y, 1.5, 0.1);
+        meshRef.current.rotation.y = lerp(meshRef.current.rotation.y, Math.PI * 0.4, 0.1);
+        meshRef.current.scale.x = lerp(meshRef.current.scale.x, 1.2, 0.1);
+        meshRef.current.scale.y = lerp(meshRef.current.scale.y, 1.2, 0.1);
       } else {
         meshRef.current.rotation.y = lerp(meshRef.current.rotation.y, 0, 0.1);
         meshRef.current.scale.x = lerp(meshRef.current.scale.x, 1, 0.1);

@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ContextProvider>
-      <body  className={`${inter.className} text-white relative min-h-screen bg-slate-800 text-black`}>
+      <body  className={`${inter.className} text-white relative min-h-screen bg-black text-white`}>
         {children}
       <MenuButton/>
         </body>

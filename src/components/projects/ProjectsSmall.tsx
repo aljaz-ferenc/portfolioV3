@@ -5,7 +5,7 @@ import SingleProject1 from "@/components/projects/SingleProject1";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 
-export default function Projects1() {
+export default function ProjectsSmall() {
 
   return (
     <div>

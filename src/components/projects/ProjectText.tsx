@@ -11,20 +11,20 @@ type ProjectTextProps = {
  export default function ProjectText({ project }: ProjectTextProps) {
     return (
       <motion.div
-        className="w-[90%] flex flex-col justify-center gap-5 max-w-[50rem]"
+        className="w-[90%] flex flex-col justify-center lg:gap-5 max-w-[50rem]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
         <div
-          className="flex gap-2 mb-2"
+          className="flex gap-2 md:mb-2"
           >
             {project.technologies.map((tech, i) => (
               <Badge key={i}>{tech}</Badge>
             ))}
           </div>
-        <h1 className="lg:text-[5rem] md:text-[3rem] text-[2rem]  font-bold">{project.title}</h1>
-        <h3 className="text-[1.5rem] md:text-[2rem]  lg:text-[2.5rem] font-bold">{project.subtitle}</h3>
+        <h1 className="2xl:text-[5rem] lg:text-[3.5rem] text-[2rem] font-bold">{project.title}</h1>
+        <h3 className="text-[1.5rem] md:text-[1.2rem]  lg:text-[2rem] font-bold">{project.subtitle}</h3>
         <div className="flex flex-col gap-5 text-[1rem] ">
           {project.paragraphs.map((para, i) => (
             <p key={i}>{para}</p>

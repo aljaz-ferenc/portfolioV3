@@ -11,7 +11,7 @@ import ProjectsMenu from "@/components/projects/ProjectsMenu";
 import SingleProject from "@/components/projects/SingleProject";
 import ProjectLink from "@/components/projects/ProjectLink";
 import ProjectText from "@/components/projects/ProjectText";
-import Projects1 from "../projects1/page";
+import ProjectsSmall from "@/components/projects/ProjectsSmall";
 
 const projects = projectsData.reverse();
 
@@ -21,24 +21,24 @@ export default function Experience() {
 
 
   return (
-    <div>
+    <div className='w-[90vw] mx-auto'>
       <div
-        className="h-screen relative w-screen hidden lg:flex bg-black"
+        className="h-screen relative w-full hidden lg:flex bg-black"
       >
+          <ProjectsMenu state={state} setState={setState} projects={projects} />
         <div className="md:w-[50%] w-[30%] h-full grid place-items-center relative">
           <AnimatePresence mode="wait">
             <ProjectText key={state} project={project} />
           </AnimatePresence>
-          <ProjectsMenu state={state} setState={setState} projects={projects} />
         </div>
         <div className="w-[50%] h-full">
-          <Canvas>
+          <Canvas camera={{fov: 60}}>
             <Projects state={state} setState={setState} />
           </Canvas>
         </div>
       </div>
       <div className="lg:hidden">
-        <Projects1 />
+        <ProjectsSmall />
       </div>
     </div>
   );
