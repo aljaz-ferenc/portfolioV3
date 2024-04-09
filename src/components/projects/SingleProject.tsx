@@ -28,10 +28,12 @@ export default function SingleProject({
   
       if (active) {
         meshRef.current.rotation.y = lerp(meshRef.current.rotation.y, Math.PI * 0.4, 0.1);
+        meshRef.current.rotation.x = lerp(meshRef.current.rotation.x, Math.PI * -0.03, 0.1);
         meshRef.current.scale.x = lerp(meshRef.current.scale.x, 1.2, 0.1);
         meshRef.current.scale.y = lerp(meshRef.current.scale.y, 1.2, 0.1);
       } else {
         meshRef.current.rotation.y = lerp(meshRef.current.rotation.y, 0, 0.1);
+        meshRef.current.rotation.x = lerp(meshRef.current.rotation.x, 0, 0.1);
         meshRef.current.scale.x = lerp(meshRef.current.scale.x, 1, 0.1);
         meshRef.current.scale.y = lerp(meshRef.current.scale.y, 1, 0.1);
       }

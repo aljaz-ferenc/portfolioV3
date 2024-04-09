@@ -9,6 +9,7 @@ type ProjectTextProps = {
   };
   
  export default function ProjectText({ project }: ProjectTextProps) {
+ 
     return (
       <motion.div
         className="w-[90%] flex flex-col justify-center lg:gap-5 max-w-[50rem]"

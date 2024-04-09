@@ -12,8 +12,6 @@ import Menu from "./Menu";
 import { usePathname } from 'next/navigation'
 import { useCtx } from "@/context/Context";
 
-
-
 const circleVariants = {
   initial: {
     width: 4,

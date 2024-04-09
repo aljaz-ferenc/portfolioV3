@@ -10,7 +10,7 @@ export default function ProjectsSmall() {
   return (
     <div>
         <motion.div className="flex flex-col " >
-          {projects.reverse().map((project, index) => (
+          {projects.map((project, index) => (
             <SingleProject1 key={project.id} project={project} />
           ))}
         </motion.div>

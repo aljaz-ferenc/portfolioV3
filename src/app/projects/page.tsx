@@ -1,38 +1,34 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import React, { useEffect, useRef, useState } from "react";
+import React, {  useRef, useState } from "react";
 import projectsData from "@/projects.json";
 import { Project } from "@/types";
-import { Group, PointLight } from "three";
+import { Group } from "three";
 import { lerp } from "@/utils/functions";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import ProjectsMenu from "@/components/projects/ProjectsMenu";
 import SingleProject from "@/components/projects/SingleProject";
-import ProjectLink from "@/components/projects/ProjectLink";
 import ProjectText from "@/components/projects/ProjectText";
 import ProjectsSmall from "@/components/projects/ProjectsSmall";
 
-const projects = projectsData.reverse();
+const projects = projectsData;
 
 export default function Experience() {
   const [state, setState] = useState(0);
   const project: Project = projects[state];
 
-
   return (
-    <div className='w-[90vw] mx-auto'>
-      <div
-        className="h-screen relative w-full hidden lg:flex bg-black"
-      >
-          <ProjectsMenu state={state} setState={setState} projects={projects} />
+    <div className="w-[90vw] mx-auto">
+      <div className="h-screen relative w-full hidden lg:flex bg-black">
+        <ProjectsMenu state={state} setState={setState} projects={projects} />
         <div className="md:w-[50%] w-[30%] h-full grid place-items-center relative">
           <AnimatePresence mode="wait">
             <ProjectText key={state} project={project} />
           </AnimatePresence>
         </div>
         <div className="w-[50%] h-full">
-          <Canvas camera={{fov: 60}}>
+          <Canvas camera={{ fov: 60 }}>
             <Projects state={state} setState={setState} />
           </Canvas>
         </div>
@@ -73,4 +69,3 @@ function Projects({ state, setState }: ProjectsProps) {
     </>
   );
 }
-
