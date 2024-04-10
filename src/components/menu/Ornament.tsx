@@ -23,16 +23,16 @@ function Model({mouse}: any) {
   const wallRef = useRef<any>(null)
   const ballRef = useRef<any>(null)
 
-  useEffect(() => {
-    if (!model) return;
-    model.scene.traverse((child: any) => {
-      if (child.isMesh) {
-        if (child.material) {
-          child.material.color.set("white");
-        }
-      }
-    });
-  }, [model]);
+  // useEffect(() => {
+  //   if (!model) return;
+  //   model.scene.traverse((child: any) => {
+  //     if (child.isMesh) {
+  //       if (child.material) {
+  //         child.material.color.set("white");
+  //       }
+  //     }
+  //   });
+  // }, [model]);
 
   useFrame(({raycaster, camera, clock}, delta) => {
     if (!modelRef.current) return;

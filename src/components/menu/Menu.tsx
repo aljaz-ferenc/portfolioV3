@@ -13,10 +13,10 @@ import { useCtx } from "@/context/Context";
 
 
 const links: MenuLinkType[] = [
-  { text: "About", href: "/about" },
-  { text: "Projects", href: "/projects" },
-  { text: "Stack", href: "/stack" },
-  { text: "Blog", href: "https://blog-next-virid.vercel.app/" },
+  { text: "About", href: "/about", target:'_self' },
+  { text: "Projects", href: "/projects", target:'_self' },
+  { text: "Stack", href: "/stack", target:'_self' },
+  { text: "Blog", href: "https://blog-next-virid.vercel.app/", target:'_blank' },
 ];
 
 const headingVariants = {

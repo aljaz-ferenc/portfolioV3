@@ -15,4 +15,5 @@ export type Project = {
 export type MenuLink = {
   text: string;
   href: string;
+  target: '_blank' | '_self'
 };

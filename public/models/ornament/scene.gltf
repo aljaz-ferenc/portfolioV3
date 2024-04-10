@@ -78,13 +78,13 @@
       "name": "orange",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.8,
-          0.219713,
-          0.0304164,
+          1.0,
+          1.0,
+          1.0,
           1.0
         ],
         "metallicFactor": 0.0,
-        "roughnessFactor": 0.9048405946206273
+        "roughnessFactor": 0.0
       }
     }
   ],
