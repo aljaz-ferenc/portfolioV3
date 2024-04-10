@@ -17,7 +17,7 @@ const links: MenuLinkType[] = [
   { text: "About", href: "/about" },
   { text: "Projects", href: "/projects" },
   { text: "Stack", href: "/stack" },
-  { text: "Blog", href: "/blog" },
+  { text: "Blog", href: "https://blog-next-virid.vercel.app/" },
 ];
 
 const headingVariants = {
@@ -89,11 +89,6 @@ const menuVariants = {
   }
 }
 
-// type MenuProps = {
-//   active?: boolean;
-//   setActive?: React.Dispatch<React.SetStateAction<boolean>>;
-// };
-
 export default function Menu() {
   const mouseRef = useRef({x: 0, y: 0})
   const [linkHovered, setLinkHovered] = useState(false);
@@ -117,8 +112,7 @@ export default function Menu() {
       className="cursor-none select-none fixed top-0 w-screen h-screen bg-black left-0 flex items-center text-white z-20"
       initial={'initial'}
       animate={menuOpen? 'animate' : 'initial'}
-      // exit={'initial'}
-      // style={{ zIndex: 10 }}
+      exit={'initial'}
     >
       <div className="z-0 w-full h-full absolute top-0 left-0" >
         <Ornament mouse={mouseRef.current}/>

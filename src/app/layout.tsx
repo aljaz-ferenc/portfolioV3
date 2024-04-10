@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Bodoni_Moda } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import MenuButton from "@/components/menu/MenuButton";
-import Menu from "@/components/menu/Menu";
 import ContextProvider from "@/context/Context";
 
 const inter = Inter({ subsets: ["latin"] });
