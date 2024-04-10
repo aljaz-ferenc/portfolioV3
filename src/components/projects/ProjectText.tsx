@@ -28,7 +28,7 @@ type ProjectTextProps = {
         <h3 className="text-[1.5rem] md:text-[1.2rem]  lg:text-[2rem] font-bold">{project.subtitle}</h3>
         <div className="flex flex-col gap-5 text-[1rem] ">
           {project.paragraphs.map((para, i) => (
-            <p key={i}>{para}</p>
+            <p className={`${para.startsWith('NOTE') ? 'text-red-500' : ''}`} key={i}>{para}</p>
           ))}
         </div>
         <div className="flex w-full gap-5 mt-10">
