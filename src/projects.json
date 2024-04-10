@@ -89,5 +89,21 @@
     "image": "alien-invaders",
     "color": "#FBF3D5",
     "technologies": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "title": "Portfolio",
+    "subtitle": "You are here.",
+    "paragraphs": [
+      "My portfolio showcases some of the projects from my humble beginnings in the world of development to the exciting challenges of today. The projects presented here are regularly updated to highlight the latest technologies I am currently working with, the most recent ones displayed first.",
+      "The page is using Next.js with TypeScript and Tailwind. Animations are done with the Framer Motion library while Three.js and React Three Fiber provide the additional dimension and interactivity."
+    ],
+    "urls": {
+      "livePage": "https://portfolio-v3-nine-lac.vercel.app/",
+      "github": "https://github.com/aljaz-ferenc/portfolioV3"
+    },
+    "id": 5,
+    "image": "portfolio",
+    "color": "#FBF3D5",
+    "technologies": ["Next.js", "Tailwind", "Framer Motion", "React Three Fiber" ]
   }
 ]
