@@ -52,7 +52,7 @@ export default function CursorCircle({ linkHovered }: CursorCircleProps) {
 
   return (
     <div
-      className="absolute grid place-items-center"
+      className="absolute grid place-items-center hidden lg:block"
       style={{
         zIndex: 10,
         position: "absolute",
