@@ -8,8 +8,6 @@ import { motion, useInView } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import Badge from "../ui/Badge";
-// import vertexShader from '@/shaders/vertexShader'
-// import fragmentShader from '@/shaders/fragmentShader'
 
 const bodoni = Bodoni_Moda({ subsets: ["latin"] });
 const amarante = Amarante({ subsets: ["latin"], weight: "400" });
@@ -66,11 +64,6 @@ export default function SingleProject1({ project }: SingleProjectProps) {
             className="mx-auto my-10 shadow-2xl"
           />
         </motion.div>
-          {/* <div className="h-[500px] w-full">
-            <Canvas>
-              <ProjectImage project={project} />
-            </Canvas>
-          </div> */}
         </div>
         <div>
           <motion.h3
@@ -111,58 +104,5 @@ export default function SingleProject1({ project }: SingleProjectProps) {
         </div>
       </div>
     </div>
-  );
-}
-
-type ProjectImageProps = {
-  project: Project;
-};
-
-const fragmentShader = `
-uniform sampler2D uTexture;
-varying vec2 vUv;
-
-void main(){
-    vec4 textureColor = texture2D(uTexture, vUv);
-    gl_FragColor = textureColor;
-}
-`
-
-const vertexShader = `
-varying vec2 vUv;
-uniform float uTime;
-
-void main() {
-    vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-    modelPosition.z += sin(modelPosition.x * 2.0 - uTime);
-    modelPosition.z += sin(modelPosition.y * 2.0 - uTime);
-
-
-    vec4 viewPosition = viewMatrix * modelPosition;
-    vec4 projectedPosition = projectionMatrix * viewPosition;
-
-    gl_Position = projectedPosition;
-}
-`
-
-function ProjectImage({ project }: ProjectImageProps) {
-    const texture = useTexture(`/projects-images/${project.image}.webp`);
-    const timeRef = useRef(0)
-  
-    const uniforms = {
-      uTexture: { value: texture },
-      uTime: {value: 0}
-    };
-
-    useFrame(({clock}) => {
-        uniforms.uTime.value = clock.getElapsedTime()
-    })
-  
-
-  return (
-    <mesh scale={3}>
-      <planeGeometry args={[3, 2]} />
-      <shaderMaterial fragmentShader={fragmentShader} vertexShader={vertexShader} uniforms={uniforms} />
-    </mesh>
   );
 }

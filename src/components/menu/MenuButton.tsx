@@ -101,7 +101,6 @@ const hamburgerVariants = {
 
 export default function MenuButton() {
   const [hovered, setHovered] = useState(false);
-  // const [active, setActive] = useState(false);
   const pathname = usePathname()
   const {menuOpen, setMenuOpen} = useCtx()
   

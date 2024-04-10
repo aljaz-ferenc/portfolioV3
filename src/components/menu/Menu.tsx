@@ -1,13 +1,12 @@
 "use client";
 
 import { MenuLink as MenuLinkType } from "@/types";
-import { motion, AnimatePresence, easeOut, animate } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Bodoni_Moda, Amarante } from "next/font/google";
 import  CursorCircle  from "@/components/menu/CursorCircle";
 import MenuLink from "./MenuLink";
 import React, { useEffect, useRef, useState } from "react";
 import Ornament from "./Ornament";
-const bodoni = Bodoni_Moda({ subsets: ["latin"] });
 const amarante = Amarante({ subsets: ["latin"], weight: "400" });
 import { usePathname } from 'next/navigation'
 import { useCtx } from "@/context/Context";

@@ -16,16 +16,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <head>
         <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
       </head>
       <ContextProvider>
-      <body  className={`${inter.className} text-white relative min-h-screen bg-black text-white`}>
-        {children}
-      <MenuButton/>
+        <body
+          className={`${inter.className} text-white relative min-h-screen bg-black text-white`}
+        >
+          {children}
+          <MenuButton />
         </body>
       </ContextProvider>
     </html>

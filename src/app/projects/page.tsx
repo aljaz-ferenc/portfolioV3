@@ -1,8 +1,8 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import React, {  useRef, useState } from "react";
-import projectsData from "@/projects.json";
+import React, { useRef, useState } from "react";
+import projects from "@/projects.json";
 import { Project } from "@/types";
 import { Group } from "three";
 import { lerp } from "@/utils/functions";
@@ -11,8 +11,6 @@ import ProjectsMenu from "@/components/projects/ProjectsMenu";
 import SingleProject from "@/components/projects/SingleProject";
 import ProjectText from "@/components/projects/ProjectText";
 import ProjectsSmall from "@/components/projects/ProjectsSmall";
-
-const projects = projectsData;
 
 export default function Experience() {
   const [state, setState] = useState(0);
