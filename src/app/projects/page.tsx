@@ -17,7 +17,7 @@ export default function Experience() {
   const project: Project = projects[state];
 
   return (
-    <div className="w-[90vw] mx-auto">
+    <div className="w-screen">
       <div className="h-screen relative w-full hidden lg:flex bg-black">
         <ProjectsMenu state={state} setState={setState} projects={projects} />
         <div className="md:w-[50%] w-[30%] h-full grid place-items-center relative">

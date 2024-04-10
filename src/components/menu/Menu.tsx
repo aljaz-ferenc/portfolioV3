@@ -108,7 +108,7 @@ export default function Menu() {
     <motion.div
       key={"menu"}
       variants={menuVariants}
-      className="cursor-none select-none fixed top-0 w-screen h-screen bg-black left-0 flex items-center text-white z-20"
+      className="cursor-none select-none fixed top-0 w-full h-[100svh] bg-black left-0 flex items-center text-white z-20"
       initial={'initial'}
       animate={menuOpen? 'animate' : 'initial'}
       exit={'initial'}

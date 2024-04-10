@@ -117,7 +117,7 @@ export default function MenuButton() {
         onClick={handleClick}
         onMouseLeave={() => setHovered(false)}
         onMouseEnter={() => setHovered(true)}
-        className={`text-white w-[100px] z-50 gap-2 rounded-[90px] font-semibold h-[45px] flex items-center justify-center fixed top-5 right-5 ${
+        className={`text-white w-[100px] z-50 gap-2 rounded-[90px] font-semibold h-[45px] flex items-center justify-center fixed bottom-8 right-8 md:top-5 md:right-5 ${
           menuOpen ? "cursor-default" : "pointer"
         }`}
         style={{ zIndex: 10001 }}

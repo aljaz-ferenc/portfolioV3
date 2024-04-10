@@ -30,19 +30,19 @@ const variants = {
 
 export default function SingleProject1({ project }: SingleProjectProps) {
   return (
-    <div className="grid place-items-center mb-40 w-screen">
-      <div className="max-w-[50rem] w-[90%] mx-auto">
+    <div className="grid place-items-center mb-40 w-full">
+      <div className=" w-[90%] mx-auto">
         <div>
           <motion.h1
             variants={variants}
             whileInView={"animate"}
             initial={"initial"}
-            className={`text-[5rem] font-bold ${amarante.className}`}
+            className={`text-[3rem] font-bold ${amarante.className}`}
           >
             {project.title}
           </motion.h1>
           <motion.div
-          className="flex gap-2 mb-4"
+          className="flex gap-2 mb-4 flex-wrap"
            variants={variants}
            whileInView={"animate"}
              initial={"initial"}
@@ -70,7 +70,7 @@ export default function SingleProject1({ project }: SingleProjectProps) {
             variants={variants}
             whileInView={"animate"}
             initial={"initial"}
-            className="text-[2rem] font-bold mb-5"
+            className="text-[1.5rem] font-bold mb-5 leading-6"
           >
             {project.subtitle}
           </motion.h3>
@@ -81,7 +81,7 @@ export default function SingleProject1({ project }: SingleProjectProps) {
             className="flex flex-col gap-5"
           >
             {project.paragraphs.map((para, i) => (
-              <p key={i}>{para}</p>
+              <p key={i} className='leading-7'>{para}</p>
             ))}
           </motion.div>
           <motion.div

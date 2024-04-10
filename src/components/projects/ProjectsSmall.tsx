@@ -9,7 +9,7 @@ export default function ProjectsSmall() {
 
   return (
     <div>
-        <motion.div className="flex flex-col " >
+        <motion.div className="flex flex-col w-screen" >
           {projects.map((project, index) => (
             <SingleProject1 key={project.id} project={project} />
           ))}

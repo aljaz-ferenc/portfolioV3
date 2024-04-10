@@ -20,7 +20,7 @@ const variants = {
 export default function About() {
   return (
     <div
-      className={`w-full min-h-screen ${bodoni.className} grid place-items-center`}
+      className={`w-full min-h-screen ${bodoni.className} pt-[3rem] pb-[4rem] md:pt-0 md:pt-0 md:grid md:place-items-center `}
     >
       <div className="max-w-[50rem] mx-auto w-[90%] ">
         <motion.div initial="initial" animate="animate" variants={variants}>
