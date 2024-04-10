@@ -68,7 +68,7 @@ export default function CursorCircle({ linkHovered }: CursorCircleProps) {
         animate={
           mouse.x > windowSize.x - 200 && mouse.y < 200 ? "hidden" : "initial"
         }
-        className={`w-[200px] h-[200px] absolute bg-white rounded-full cursor-none`}
+        className={`w-[200px] h-[200px] top-0 left-0 translate-x-[-50%] translate-y-[-50%] bg-white rounded-full cursor-none`}
       ></motion.div>
     </div>
   );
