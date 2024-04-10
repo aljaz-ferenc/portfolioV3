@@ -108,7 +108,7 @@ export default function Menu() {
     <motion.div
       key={"menu"}
       variants={menuVariants}
-      className="cursor-none select-none fixed top-0 w-full h-[100svh] bg-black left-0 flex items-center text-white z-20"
+      className="cursor-none select-none fixed top-0 w-full h-[100dvh] bg-black left-0 flex items-center text-white z-20"
       initial={'initial'}
       animate={menuOpen? 'animate' : 'initial'}
       exit={'initial'}
@@ -120,7 +120,7 @@ export default function Menu() {
         
 
       <motion.h1
-        className={`absolute right-[20%] bottom-[2rem] lg:text-[5rem] md:text-[3rem] text-[2rem] 2xl:text-[8rem]  ${amarante.className}`}
+        className={`absolute left-[5vw] md:left-auto md:right-[5vw] w-fit bottom-[2rem] lg:text-[5rem] md:text-[3rem] text-[2rem] 2xl:text-[8rem]  ${amarante.className}`}
         variants={headingVariants}
         initial="initial"
         animate="animate"
