@@ -19,6 +19,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
+      </head>
       <ContextProvider>
       <body  className={`${inter.className} text-white relative min-h-screen bg-black text-white`}>
         {children}
